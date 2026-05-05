@@ -1,0 +1,570 @@
+/**
+ * Global styles for HealthyEat application.
+ * Modern fresh design with green theme, responsive cards, and smooth transitions.
+ * @author COMP2850 Team
+ */
+
+:root {
+    --primary-green: #198754;
+    --light-green: #20c997;
+    --bg-light: #f8f9fa;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Navigation */
+.navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark) !important;
+    transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-green) !important;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.card-header {
+    border-radius: 1rem 1rem 0 0 !important;
+    border: none;
+}
+
+/* Recipe & Knowledge Cards */
+.recipe-card, .knowledge-card {
+    cursor: pointer;
+}
+
+.recipe-card-img, .knowledge-card-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Recipe Detail */
+.recipe-detail-img, .article-detail-img {
+    height: 350px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+/* Food Item Card */
+.food-item-card {
+    cursor: default;
+}
+
+.food-item-img {
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Food Database Cards on Homepage */
+.food-card-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+.food-card .card-body {
+    padding: 0.75rem;
+}
+
+/* Carousel */
+.carousel-caption-custom {
+    padding: 2rem;
+}
+
+/* Section Titles */
+.section-title {
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-green);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Food Entry Items (Dashboard) */
+.food-entry-item {
+    border-left: 4px solid var(--primary-green);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.food-entry-item.breakfast { border-left-color: #ffc107; }
+.food-entry-item.lunch { border-left-color: var(--primary-green); }
+.food-entry-item.dinner { border-left-color: #0d6efd; }
+.food-entry-item.snack { border-left-color: #6f42c1; }
+
+/* Advice Items */
+.advice-item {
+    border-left: 4px solid #0dcaf0;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+/* Comment Items */
+.comment-item:last-child {
+    border-bottom: none !important;
+}
+
+/* Stat Cards */
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.stat-card .stat-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Client Cards */
+.client-card {
+    cursor: pointer;
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.btn-success {
+    background: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-success:hover {
+    background: #157347;
+    border-color: #157347;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.85em;
+    font-weight: 500;
+    border-radius: 0.35rem;
+}
+
+/* Forms */
+.form-control, .form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+/* Tables */
+.table th {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.75rem 1rem;
+}
+
+/* Pagination */
+.page-link {
+    border-radius: 0.5rem;
+    margin: 0 0.2rem;
+    color: var(--primary-green);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .recipe-detail-img, .article-detail-img {
+        height: 200px;
+    }
+    .carousel-caption-custom {
+        min-height: 250px !important;
+    }
+    .recipe-card-img, .knowledge-card-img {
+        height: 150px;
+    }
+}
+
+/* Autocomplete Dropdown */
+.autocomplete-wrapper {
+    position: relative;
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.autocomplete-dropdown.show {
+    display: block;
+}
+
+.autocomplete-dropdown li {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.15s;
+}
+
+.autocomplete-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-dropdown li:hover,
+.autocomplete-dropdown li.active {
+    background-color: #e8f5e9;
+}
+
+.autocomplete-dropdown li .cal-badge {
+    float: right;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: #f8f9fa;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+}
+
+.autocomplete-dropdown .dropdown-empty {
+    color: var(--text-muted);
+    cursor: default;
+    background: none;
+}
+
+.autocomplete-dropdown .dropdown-empty:hover {
+    background-color: transparent;
+}
+
+/* ==================== Chat Widget ==================== */
+
+#chatWidgetBtn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-green);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(25, 135, 84, 0.4);
+    z-index: 9999;
+    transition: transform 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatWidgetBtn:hover {
+    transform: scale(1.08);
+    background: #157347;
+}
+
+#chatWidgetBtn.chat-active {
+    background: #0d6efd;
+}
+
+.chat-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    background: #dc3545;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.chat-widget-panel {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 360px;
+    height: 500px;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+    z-index: 9998;
+    overflow: hidden;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--primary-green);
+    color: #fff;
+}
+
+.chat-header-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background 0.15s;
+}
+
+.chat-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #f5f7fb;
+}
+
+.chat-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color: var(--text-muted);
+    gap: 8px;
+}
+
+.chat-empty i {
+    font-size: 2.5rem;
+    opacity: 0.3;
+}
+
+.chat-empty p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.chat-message {
+    display: flex;
+    max-width: 80%;
+}
+
+.chat-mine {
+    align-self: flex-end;
+}
+
+.chat-theirs {
+    align-self: flex-start;
+}
+
+.chat-msg-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-msg-name {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    padding-left: 10px;
+}
+
+.chat-msg-bubble {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.chat-mine .chat-msg-bubble {
+    background: var(--primary-green);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-theirs .chat-msg-bubble {
+    background: #fff;
+    color: var(--text-dark);
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.chat-msg-time {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    padding: 0 4px;
+}
+
+.chat-mine .chat-msg-time {
+    text-align: right;
+}
+
+.chat-date-separator {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    padding: 6px 0;
+}
+
+.chat-input-bar {
+    display: flex;
+    padding: 10px 12px;
+    gap: 8px;
+    background: #fff;
+    border-top: 1px solid #e9ecef;
+}
+
+.chat-input {
+    flex: 1;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.chat-input:focus {
+    border-color: var(--primary-green);
+}
+
+.chat-send-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-green);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.chat-send-btn:hover {
+    background: #157347;
+}
+
+.chat-send-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 576px) {
+    .chat-widget-panel {
+        right: 8px;
+        left: 8px;
+        bottom: 80px;
+        width: auto;
+        height: 70vh;
+    }
+
+    #chatWidgetBtn {
+        bottom: 16px;
+        right: 16px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
