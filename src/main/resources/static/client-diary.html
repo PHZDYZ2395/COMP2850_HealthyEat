@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Diary - HealthyEat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-success fw-bold" href="index.html"><i class="fas fa-leaf"></i> HealthyEat</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto" id="navMenu"></ul>
+                <ul class="navbar-nav" id="navAuth"></ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-utensils"></i> Client Food Diary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="filterDate" class="form-label">Filter by Date:</label>
+                            <input type="date" class="form-control d-inline-block w-auto" id="filterDate">
+                            <button class="btn btn-outline-secondary btn-sm" id="clearFilter">Clear</button>
+                        </div>
+                        <div id="foodEntriesList"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-comment-medical"></i> Give Advice</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="adviceForm">
+                            <div class="mb-3">
+                                <label for="adviceText" class="form-label">Advice</label>
+                                <textarea class="form-control" id="adviceText" rows="4" placeholder="Enter your advice..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="fas fa-paper-plane"></i> Send Advice
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card shadow-sm mt-3">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-history"></i> Advice History</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="adviceHistory"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/client-diary.js"></script>
+    <script src="js/chat-widget.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const clientId = params.get('id');
+            const clientName = params.get('name');
+            if (clientId) {
+                new ChatWidget({
+                    contactId: parseInt(clientId),
+                    contactName: clientName ? decodeURIComponent(clientName) : 'Client',
+                    pollMs: 5000
+                });
+            }
+        });
+    </script>
